@@ -1,16 +1,21 @@
+import React from 'react'
 import './App.css'
 import LoginArea from './LoginArea'
 
-const fakeUser = { userName: 'nice789', fullname: 'Kitty' }
+const fakeUser = { username: 'nice789', fullname: 'Kitty' }
+
+const AuthContext = React.createContext()
 
 function App() {
   return (
-    <section className="app-section">
-      <div className="app-container">
-        <LoginArea auth={null} />
-      </div>
-    </section>
+    <AuthContext.Provider value={fakeUser}>
+      <section className="app-section">
+        <div className="app-container">
+          <LoginArea />
+        </div>
+      </section>
+    </AuthContext.Provider>
   )
 }
-
+export { AuthContext }
 export default App
