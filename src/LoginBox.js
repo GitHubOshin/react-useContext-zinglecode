@@ -1,5 +1,8 @@
-function LoginForm(props) {
-  const { auth } = props
+import { useContext } from 'react'
+import { AuthContext } from './App'
+
+function LoginBox() {
+  const auth = useContext(AuthContext)
 
   if (!!auth) {
     return (
@@ -14,7 +17,7 @@ function LoginForm(props) {
   }
 
   return (
-    <from>
+    <form>
       <p>
         <input type="text" placeholder="username" />
       </p>
@@ -24,8 +27,8 @@ function LoginForm(props) {
       <p>
         <button type="submit">Log in</button>
       </p>
-    </from>
+    </form>
   )
 }
 
-export default LoginForm
+export default LoginBox
