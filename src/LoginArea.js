@@ -1,12 +1,11 @@
 import './LoginArea.CSS'
-import LoginForm from './LoginForm'
+import LoginBox from './LoginBox'
 
-function LoginArea(props) {
-  const { auth } = props
+function LoginArea() {
   return (
     <div className="box">
       <h2>Welcome to my world</h2>
-      <LoginForm auth={auth} />
+      <LoginBox />
     </div>
   )
 }
