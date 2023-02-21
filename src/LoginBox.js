@@ -2,23 +2,23 @@ import { useContext } from 'react'
 import { AuthContext } from './App'
 
 function LoginBox() {
-  const { auth, setAuth } = useContext(AuthContext)
+  const { authState, authDispatch } = useContext(AuthContext)
   const fakeUser = { username: 'nice789', fullname: 'Kitty' }
 
   function loginSubmit(event) {
     event.preventDefault()
-    setAuth(fakeUser)
+    authDispatch({ type: 'login', payload: fakeUser })
   }
 
   function logoutSubmit() {
-    setAuth(null)
+    authDispatch({ type: 'logout' })
   }
 
-  if (!!auth) {
+  if (!!authState) {
     return (
       <div>
-        <p>Auth username: {auth.username}</p>
-        <p>Auth fullname: {auth.fullname}</p>
+        <p>Auth username: {authState.username}</p>
+        <p>Auth fullname: {authState.fullname}</p>
         <p>
           <button onClick={logoutSubmit}>Log out</button>
         </p>
@@ -42,3 +42,4 @@ function LoginBox() {
 }
 
 export default LoginBox
+
